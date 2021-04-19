@@ -45,7 +45,7 @@ $result = mysqli_query($conn, $sql) or die("Requête invalide: ".mysqli_error().
     }
     else{
     	
-        echo " Zuuuuuuuuut :p :p :p :p :p :p";
+        echo " Votre Login ou mot de passe est Erroné.";
         exit();
     }
         
