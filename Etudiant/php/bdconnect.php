@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="css/convocc.css">
+
 
 <?php 
 
@@ -247,8 +249,10 @@ $result = mysqli_query($conn, $sql) or die("Requête invalide: ".mysqli_error().
         </div>
     </header>
 
-<div class= "content" style=" text-align: center">
+<div class= "content" >
 
+<div class= "titre" style=" text-align: center">
+<h1>
 <?php
 $lien='etudiant.html'; 
     	/*echo readfile('/home/barryabd/public_html/connection/test.php');
@@ -257,9 +261,18 @@ $lien='etudiant.html';
 		
 		echo '<a href="https://tp-epua.univ-smb.fr/~barryabd/connection/bdconnect.php" action="test.php">Click here</a>';*/
         
-	echo 'Bienvenue sur votre comptesa majesté ' . htmlspecialchars($_POST["nom"]." ".$_POST["prenom"]) .   '!'  ."\n";  
+	echo 'Bienvenue sur votre compte ' . htmlspecialchars($_POST["nom"]." ".$_POST["prenom"]) .   '!'  ."\n";  
 	
+?>
 
+</h1>
+</div>
+
+
+
+<div class= "identifiant" style=" text-align: center">
+<h3>
+<?php
 /*session_start();*/
 
 $conn = mysqli_connect("tp-epua:3308", "barryabd", "wzgyp715") or die("Impossible de se connecter : ".mysqli_connect_error());  
@@ -281,23 +294,100 @@ echo "<p> Vous êtes connecté en tant que $_SESSION['nom'] </p>";*/
 
 
 
-		    $sql = 'SELECT * FROM `Etudiant` WHERE `nomEtu`="'.$_POST["nom"].'" and prenomEtu="'.$_POST["prenom"].'"';
+		    $sql = 'SELECT idEtu FROM `Etudiant` WHERE `nomEtu`="'.$_POST["nom"].'" and prenomEtu="'.$_POST["prenom"].'"';
 		
 			
 			$result = mysqli_query($conn, $sql) or die("Requête invalide: ".mysqli_error()."\n".$sql);
 				
 			while ($row = mysqli_fetch_array($result)) { 
-   				echo '<li>'.$row[0].' '.$row[1].' '.$row[2].'<br/></li>';
+   				echo 'Votre numéro d\'identifiant est '.$row[0].' <br/>';
 			} 
 
 
 
+?>
+</h3>
+</div>
+<br><br>	
 
-		
+<!--echo "\n Mes convocations";-->
+<div  style=" text-align: center">
+<!--<table class="tabl" >
 
-echo "\n Mes convocations";
-	
-	
+<tr>
+    <td>Type d'entretien</td>
+    <td>Heure</td>
+    <td>Date</td>
+    <td>Professeur</td>
+  	<td> Salle</td>
+   
+</tr><
+</table>
+</div>
+<div class= "convocation"  style=" text-align: center">
+
+<style type="text/css">
+h3	 {
+  color: #26b72b;
+}
+.tabl {
+	 
+   border: 5px solid black;
+
+   width: 800px;
+   height: 100px;
+   color: black;
+   right: 100px;
+}
+
+</style>
+
+-->
+
+
+<style type="text/css">
+table {
+border: medium solid #000000;
+position: center;
+margin:auto;
+
+
+}
+td, th {
+border: thin solid #6495ed;
+
+position: center;
+}
+
+</style>
+
+
+
+<h3>
+	Mes convocations :
+
+
+</h3>	
+  
+
+
+<h4>	
+
+<table class= "tabl">
+
+  <tr>
+	<td>Type d'entretien</td>
+    <td>Heure</td>
+    <td>Date</td>
+    <td>Nom du professeur</td>
+    <td>Prenom du professeur</td>
+  	<td> Salle</td>
+  </tr>
+
+  
+ 
+
+<?php	
 
 /*session_start();*/
 
@@ -325,18 +415,50 @@ echo "<p> Vous êtes connecté en tant que $_SESSION['nom'] </p>";*/
 			$result = mysqli_query($conn, $sql) or die("Requête invalide: ".mysqli_error()."\n".$sql);
 				
 			while ($row = mysqli_fetch_array($result)) { 
-   				echo '<li>'.$row[0].' '.$row[1].' '.$row[2].' '.$row[3].' '.$row[4].' '.$row[5].'<br/></li>';
+   				echo '<tr>';
+       echo '<td>'. $row[0].'</td> '  ;
+	   echo '<td>'.$row[1].'</td> ' ;
+	   echo '<td> '.$row[2].'</td> ';
+	    echo '<td>'.$row[3].'</td> '  ;
+	   echo '<td> '.$row[4].'</td> ';
+	   echo '<td> '.$row[5].'</td> ';
+       echo '</tr>';
 			} 
 
+      /* echo '<tr>\n';
+       echo '<td>'. $row[0].'</td> '  ;
+	   echo '<td>'.$row[1].'</td> ' ;
+	   echo '<td> '.$row[2].'</td> ';
+	    echo '<td>'.$row[3].'</td> '  ;
+	   echo '<td> '.$row[4].'</td> ';
+       echo '</tr>';*/
 
+?>
 
+</table>
+</h4>	
+</div>	
 
-		
-
-echo "Mes résultats disponibles :";
+<!--echo "Mes résultats disponibles :"; -->
 	
-	
+	<br><br>
+<div class= "resultat" style=" text-align: center">
+<h3>
+	Mes résultats :
+</h3>	
+<h4>	
 
+<table class= "tabl">
+
+  <tr>
+	<td>Type d'entretien</td>
+    <td>Notes</td>
+    <td>Commentaire</td>
+    <td>Date</td>
+	<td>Nom du professeur</td>
+    <td>Prenom du professeur</td> 
+     </tr>
+<?php
 
 /*session_start();*/
 
@@ -363,9 +485,18 @@ echo "<p> Vous êtes connecté en tant que $_SESSION['nom'] </p>";*/
 			
 			$result = mysqli_query($conn, $sql) or die("Requête invalide: ".mysqli_error()."\n".$sql);
 				
-			while ($row = mysqli_fetch_array($result)) { 
-   				echo '<li>'.$row[0].' '.$row[1].' '.$row[2].' '.$row[3].' '.$row[4].' '.$row[5].'<br/></li>';
-			} 
+			while ($row = mysqli_fetch_array($result)) {
+				   				echo '<tr>';
+       echo '<td>'. $row[0].'</td> '  ;
+	   echo '<td>'.$row[1].'</td> ' ;
+	   echo '<td> '.$row[2].'</td> ';
+	    echo '<td>'.$row[3].'</td> '  ;
+	   echo '<td> '.$row[4].'</td> ';
+	   echo '<td> '.$row[5].'</td> ';
+       echo '</tr>';
+			}  
+   				/*echo '<li>'.$row[0].' '.$row[1].' '.$row[2].' '.$row[3].' '.$row[4].' '.$row[5].'<br/></li>';
+			} */
 
 
 
@@ -376,11 +507,15 @@ echo "<p> Vous êtes connecté en tant que $_SESSION['nom'] </p>";*/
 	
 	?>
 	
+</table>
+</h4>	
+</div>	
+</div>
 	</div>
 	
 	
-	<div id="calendrier">
-<iframe name="InlineFrame1" id="InlineFrame1" style="width:200px;height:240px;padding-left: 20px" src="https://www.mathieuweb.fr/calendrier/calendrier-des-semaines.php?nb_mois=1&nb_mois_ligne=4&mois=&an=&langue=fr&texte_color=B9CBDD&week_color=DAE9F8&week_end_color=C7DAED&police_color=453413&sel=true" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+	<div id="calendrier" style=" text-align: right">
+<iframe name="InlineFrame1" id="InlineFrame1" style="width:300px;height:240px;padding-left: 20px" src="https://www.mathieuweb.fr/calendrier/calendrier-des-semaines.php?nb_mois=1&nb_mois_ligne=4&mois=&an=&langue=fr&texte_color=B9CBDD&week_color=DAE9F8&week_end_color=C7DAED&police_color=453413&sel=true" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
 </div>
 	
 <script src="js/vendor-all.min.js"></script>
