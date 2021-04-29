@@ -1,0 +1,64 @@
+#box{
+	
+}
+#corps{
+	display: flex;
+	flex-wrap: wrap;
+}
+#en_tete{
+	color: white;
+	height: 100px;
+	width: 100%;
+	background-color: #283747;
+	margin-top: 0px;
+}
+ul#element li{
+	display: inline;
+	list-style: none;
+}
+#en_tete img{
+	left: 1600px;
+	position: absolute;
+}
+#en_tete a{
+	text-decoration: none;
+	margin-left: 0px;
+	margin-top: 40px;
+	position: absolute;
+}
+#menu{
+	width: 300px;
+	height: 850px;
+	background: #34495E;
+}
+a#list_sub_menu{
+	text-decoration: none;
+	font-size: 20px;
+	padding-top: 15px;
+	color: #F2F3F4;
+	display: block;
+	height: 60px;
+	width: 100%;
+}
+a#list_sub_menu:hover{
+	background-color: #48C9B0;
+}
+#information{
+	width: 50%;
+	background-color: #CCD1D1; 
+}
+#information button:hover{
+	background-color: #33FFBC;
+}
+table, td, th{
+  border: 1px solid black;
+}
+table{
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10px;
+}
+textarea{
+	width:80%;
+	height:20%;
+}
