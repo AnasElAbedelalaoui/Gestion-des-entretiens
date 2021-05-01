@@ -2,9 +2,7 @@
 <?php   
         /*Connexion à la base de données sur le serveur tp-epua*/
 		$conn = @mysqli_connect("tp-epua:3308", "richardn", "4d397gwj");    
-		/*tp-epua:3308*/
-		/*connexion à la base de donnée depuis la machine virtuelle INFO642*/
-		/*$conn = @mysqli_connect("localhost", "etu", "bdtw2021");*/  
+	
 
 		if (mysqli_connect_errno()) {
             $msg = "erreur ". mysqli_connect_error();
