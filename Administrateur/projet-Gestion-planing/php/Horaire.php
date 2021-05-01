@@ -5,10 +5,6 @@
 
 	$conn = @mysqli_connect("tp-epu:3308", "abdoumaz","tfmgvf34");    
 
-	/*connexion à la base de donnée depuis la machine virtuelle INFO642*/
-
-	/*$conn = @mysqli_connect("localhost", "etu", "bdtw2021");*/  
-
 
 
 	if (mysqli_connect_errno()) {
