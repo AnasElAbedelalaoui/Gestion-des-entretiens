@@ -43,7 +43,7 @@ div#leftsidenav a {
   border-style: solid;
 }
 
-/* When you mouse over the navigation links, change their color */
+/* Scrolling effect :The color changes  When your mouse is over the navigation links,  */
 div#leftsidenav a:hover {
   background-color: #ddd;
 }
