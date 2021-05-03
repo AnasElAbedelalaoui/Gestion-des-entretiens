@@ -155,3 +155,5 @@ INSERT INTO `Entretien` (`idEn`, `typee`, `idsal`, `idH`) VALUES
 ('E-I002', 'APP', 'B-206', 'H-101'),
 ('E-P003', 'PROJET', 'A-203', 'H-200'),
 ('E-I003', 'STAGE', 'B-206', 'H-200');
+
+
